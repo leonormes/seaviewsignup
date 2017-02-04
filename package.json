@@ -1,0 +1,15 @@
+{
+  "name": "seaviewhouseregister",
+  "version": "0.0.1",
+  "description": "Seaview's pupil register",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Leon Ormes",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^3.14.0",
+    "eslint-config-google": "^0.7.1"
+  }
+}

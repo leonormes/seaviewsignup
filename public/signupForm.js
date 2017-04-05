@@ -7,6 +7,7 @@ frm.addEventListener('submit', function(e) {
 	console.log(submitted);
 	removeForm();
 	formResponse();
+	return false
 });
 let getFormInfo = function(formData) {
 	let formInfo = {};

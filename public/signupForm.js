@@ -1,15 +1,15 @@
-let frm = document.forms[0];
+var frm = document.forms[0];
 frm.addEventListener('submit', function(e) {
 	e.preventDefault();
-	let formData = document.signup.elements;
+	var formData = document.signup.elements;
 	formValues = getFormInfo(formData);
-	let submitted = writePupilRecord(formValues);
+	var submitted = writePupilRecord(formValues);
 	console.log(submitted);
 	removeForm();
 	formResponse();
 });
-let getFormInfo = function(formData) {
-	let formInfo = {};
+var getFormInfo = function(formData) {
+	var formInfo = {};
 	formInfo.adultfname = formData['adultfname'].value;
 	formInfo.adultsurname = formData['adultsurname'].value;
 	formInfo.email = formData['email'].value;
@@ -22,29 +22,55 @@ let getFormInfo = function(formData) {
 	formInfo.hasStarted = false;
 	formInfo.status = 'Waiting';
 	formInfo.timeStamp = firebase.database.ServerValue.TIMESTAMP;
-	let allergies = document.signup.elements['allergies'];
+	var allergies = document.signup.elements['allergies'];
 	formInfo.allergies = allergies.value === 'true';
 	return formInfo;
 };
 
-let dayChoices = function() {
-	let dayChoices = document.getElementsByName('days');
-		let days = [];
-	for(let input of dayChoices) {
-		if(input.checked) {
-			days.push(input.value);
+'use strict';
+
+var dayChoices = function dayChoices() {
+	var nodeList = document.getElementsByName('days');
+	var dayChoices = Array.prototype.slice.call(nodeList);
+	var days = [];
+	var _iteratorNormalCompvarion = true;
+	var _didIteratorError = false;
+	var _iteratorError = undefined;
+
+	try {
+		for (var _iterator = dayChoices[Symbol.iterator](), _step; !(_iteratorNormalCompvarion = (_step = _iterator.next()).done); _iteratorNormalCompvarion = true) {
+			var input = _step.value;
+
+			if (input.checked) {
+				days.push(input.value);
+			}
 		}
-	};
+	} catch (err) {
+		_didIteratorError = true;
+		_iteratorError = err;
+	} finally {
+		try {
+			if (!_iteratorNormalCompvarion && _iterator.return) {
+				_iterator.return();
+			}
+		} finally {
+			if (_didIteratorError) {
+				throw _iteratorError;
+			}
+		}
+	}
+
+	;
 	return days;
 };
 const database = firebase.database();
 function writePupilRecord(pupil) {
-	let submitted = database.ref('pupils/').push(pupil);
+	var submitted = database.ref('pupils/').push(pupil);
 	return submitted;
 };
 
 function removeForm() {
-	let childrenElements = document.getElementsByClassName('content_form');
+	var childrenElements = document.getElementsByClassName('content_form');
 	if(childrenElements.length > 0) {
 		while (childrenElements[0].firstChild) {
 			childrenElements[0].removeChild(childrenElements[0].firstChild);
@@ -52,9 +78,9 @@ function removeForm() {
 	}
 };
 function formResponse() {
-	let messageBox = document.createElement('div');
-	let messageText = document.createTextNode('Form Sent. Thank you');
+	var messageBox = document.createElement('div');
+	var messageText = document.createTextNode('Form Sent. Thank you');
 	messageBox.appendChild(messageText);
-	let page = document.getElementsByClassName('content_form')[0];
+	var page = document.getElementsByClassName('content_form')[0];
 	page.appendChild(messageBox);
 }

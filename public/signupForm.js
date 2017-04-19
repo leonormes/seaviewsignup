@@ -1,10 +1,10 @@
+'use strict';
 var frm = document.forms[0];
 frm.addEventListener('submit', function(e) {
 	e.preventDefault();
 	var formData = document.signup.elements;
-	formValues = getFormInfo(formData);
+	var	formValues = getFormInfo(formData);
 	var submitted = writePupilRecord(formValues);
-	console.log(submitted);
 	removeForm();
 	formResponse();
 	return false
@@ -25,10 +25,10 @@ var getFormInfo = function(formData) {
 	formInfo.timeStamp = firebase.database.ServerValue.TIMESTAMP;
 	var allergies = document.signup.elements['allergies'];
 	formInfo.allergies = allergies.value === 'true';
+	var photos = document.signup.elements['photos'];
+	formInfo.photos = photos.value === 'true';
 	return formInfo;
 };
-
-'use strict';
 
 var dayChoices = function dayChoices() {
 	var nodeList = document.getElementsByName('days');

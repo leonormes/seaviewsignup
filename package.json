@@ -1,15 +1,23 @@
 {
-  "name": "seaviewhouseregister",
-  "version": "0.0.1",
-  "description": "Seaview's pupil register",
-  "main": "index.html",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Leon Ormes",
-  "license": "ISC",
-  "devDependencies": {
-    "eslint": "^3.14.0",
-    "eslint-config-google": "^0.7.1"
-  }
+    "name": "seaviewsignup",
+    "version": "0.0.1",
+    "description": "Signup form for Seaview",
+    "main": "public/index.html",
+    "scripts": {
+        "start": "nodemon --watch webpack.config.js --exec webpack-dev-server --env development",
+        "build": "webpack --env production"
+    },
+    "author": "Leon Ormes",
+    "license": "ISC",
+    "devDependencies": {
+        "compression-webpack-plugin": "^1.0.0",
+        "eslint": "^3.19.0",
+        "eslint-config-google": "^0.7.1",
+        "eslint-loader": "^1.9.0",
+        "extract-text-webpack-plugin": "^3.0.0",
+        "html-webpack-plugin": "^2.30.1",
+        "nodemon": "^1.11.0",
+        "webpack": "^3.5.3",
+        "webpack-merge": "^4.1.0"
+    }
 }
